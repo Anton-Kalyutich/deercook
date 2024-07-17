@@ -3,14 +3,18 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from '@mui/material/CardMedia';
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
+import friedPotatoImage from './fried-potato.jpeg';
+import eggsBenedict from './eggs-benedict.jpg';
+import greekSalad from './greek-salad.jpg'
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 function Row() {
   const [recipes, setRecipes] = useState([]);
@@ -42,9 +46,9 @@ function Row() {
       </Typography>
       <Box
         sx={{
-          paddingTop: '20px',
-          paddingLeft: '20px',
-          paddingBottom: '50px',
+          paddingTop: "20px",
+          paddingLeft: "20px",
+          paddingBottom: "50px",
           display: "flex",
           flexFlow: "row wrap",
           justifyContent: "flex-start",
@@ -63,6 +67,12 @@ function Row() {
               flexDirection: "column",
             }}
           >
+            <CardMedia
+              component="img"
+              alt="fried potatos"
+              height="140"
+              image={greekSalad}
+            />
             <CardContent>
               <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
                 {recipe.dish_name}
@@ -70,7 +80,9 @@ function Row() {
               <Typography variant="body2">{recipe.description}</Typography>
             </CardContent>
             <CardActions sx={{ mt: "auto" }}>
-              <Button sx={{ color: '#8B4513' }} size="small">Learn More</Button>
+              <Button sx={{ color: "#8B4513" }} size="small">
+                Learn More
+              </Button>
             </CardActions>
           </Card>
         ))}
