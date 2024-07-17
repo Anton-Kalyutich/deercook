@@ -29,27 +29,23 @@ function Row() {
   }, []);
 
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-evenly',
-      alignItems: 'stretch',
-      gap: '20px',
-      maxWidth: '500px',
-    }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexFlow: "row wrap",
+        justifyContent: "center",
+        alignItems: "stretch",
+        alignContent: "center",
+        gap: "20px",
+      }}
+    >
       {recipes.map((recipe, index) => (
-        <Card key={index} sx={{ minWidth: 275, flex: 1 }}>
+        <Card key={index} sx={{ minWidth: 275, maxWidth: 275 }}>
           <CardContent>
-            <Typography
-              sx={{ fontSize: 14 }}
-              color="text.secondary"
-              gutterBottom
-            >
+            <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
               {recipe.dish_name}
             </Typography>
-            <Typography variant="body2">
-              {recipe.description}
-            </Typography>
+            <Typography variant="body2">{recipe.description}</Typography>
           </CardContent>
         </Card>
       ))}
