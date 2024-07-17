@@ -8,8 +8,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import friedPotatoImage from './fried-potato.jpeg';
-import eggsBenedict from './eggs-benedict.jpg';
-import greekSalad from './greek-salad.jpg'
+import eggsBenedictImage from './eggs-benedict.jpg';
+import greekSaladImage from './greek-salad.jpg'
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -18,6 +18,12 @@ import "@fontsource/roboto/700.css";
 
 function Row() {
   const [recipes, setRecipes] = useState([]);
+
+  const imageMapping = {
+    'Fried Potato': friedPotatoImage,
+    'Eggs Benedict': eggsBenedictImage,
+    'Greek Salad': greekSaladImage,
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -71,7 +77,7 @@ function Row() {
               component="img"
               alt="fried potatos"
               height="140"
-              image={greekSalad}
+              image={imageMapping[recipe.dish_name]}
             />
             <CardContent>
               <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
