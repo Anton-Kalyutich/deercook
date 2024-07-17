@@ -1,15 +1,19 @@
 import React from "react";
+import Box from "@mui/material/Box";
+
 import Row from "./Row";
 import Articles from "./Articles";
 import SearchAppBar from "./Bar";
+import Footer from "./Footer";
 
 function App() {
   return (
-    <div>
+    <Box sx={{ padding: 5 }}>
       <SearchAppBar />
       <Row />
       <Articles />
-    </div>
+      <Footer />
+    </Box>
   );
 }
 

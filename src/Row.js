@@ -70,7 +70,7 @@ function Row() {
               <Typography variant="body2">{recipe.description}</Typography>
             </CardContent>
             <CardActions sx={{ mt: "auto" }}>
-              <Button size="small">Learn More</Button>
+              <Button sx={{ color: '#8B4513' }} size="small">Learn More</Button>
             </CardActions>
           </Card>
         ))}

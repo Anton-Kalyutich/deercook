@@ -6,8 +6,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-
-import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -60,7 +58,7 @@ export default function SearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="sticky" sx={{ backgroundColor: 'orange' }}>
         <Toolbar sx={{ display: "flex", alignItems: "center" }}>
           <Typography
             variant="h6"
@@ -74,7 +72,7 @@ export default function SearchAppBar() {
             <List sx={{ display: "flex", gap: 2 }}>
               {navItems.map((item) => (
                 <ListItem key={item} disablePadding>
-                  <ListItemButton sx={{ textAlign: "center" }}>
+                  <ListItemButton sx={{ textAlign: "center", color: 'white' }}>
                     <ListItemText primary={item} />
                   </ListItemButton>
                 </ListItem>
@@ -83,7 +81,7 @@ export default function SearchAppBar() {
           </Box>
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{ color: 'white' }} />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Find Recipe..."

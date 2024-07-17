@@ -82,7 +82,7 @@ function Articles() {
               </Typography>
             </CardContent>
             <CardActions sx={{ mt: "auto" }}>
-              <Button size="small" onClick={handleToggle}>
+              <Button sx={{ color: '#8B4513' }}size="small" onClick={handleToggle}>
                 {showFull ? "Read Less" : "Read More"}
               </Button>
             </CardActions>
