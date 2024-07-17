@@ -7,6 +7,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 function Row() {
   const [recipes, setRecipes] = useState([]);
 
@@ -31,39 +36,45 @@ function Row() {
   }, []);
 
   return (
-    <Box
-      sx={{
-        paddingTop: "50px",
-        display: "flex",
-        flexFlow: "row wrap",
-        justifyContent: "center",
-        alignItems: "stretch",
-        alignContent: "center",
-        gap: "20px",
-      }}
-    >
-      {recipes.map((recipe, index) => (
-        <Card
-          key={index}
-          sx={{
-            minWidth: 275,
-            maxWidth: 275,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <CardContent>
-            <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
-              {recipe.dish_name}
-            </Typography>
-            <Typography variant="body2">{recipe.description}</Typography>
-          </CardContent>
-          <CardActions sx={{ mt: "auto" }}>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
-      ))}
-    </Box>
+    <>
+      <Typography sx={{ marginLeft: "20px", paddingTop: "20px" }} variant="h6">
+        Have You Tried These Already?
+      </Typography>
+      <Box
+        sx={{
+          paddingTop: '20px',
+          paddingLeft: '20px',
+          display: "flex",
+          flexFlow: "row wrap",
+          justifyContent: "flex-start",
+          alignItems: "stretch",
+          alignContent: "center",
+          gap: "20px",
+        }}
+      >
+        {recipes.map((recipe, index) => (
+          <Card
+            key={index}
+            sx={{
+              minWidth: 275,
+              maxWidth: 275,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardContent>
+              <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
+                {recipe.dish_name}
+              </Typography>
+              <Typography variant="body2">{recipe.description}</Typography>
+            </CardContent>
+            <CardActions sx={{ mt: "auto" }}>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        ))}
+      </Box>
+    </>
   );
 }
 
