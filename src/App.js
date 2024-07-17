@@ -1,5 +1,6 @@
 import React from "react";
 import Row from "./Row";
+import Articles from "./Articles";
 import SearchAppBar from "./Bar";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       <SearchAppBar />
       <Row />
+      <Articles />
     </div>
   );
 }

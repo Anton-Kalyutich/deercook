@@ -37,13 +37,14 @@ function Row() {
 
   return (
     <>
-      <Typography sx={{ marginLeft: "20px", paddingTop: "20px" }} variant="h6">
+      <Typography sx={{ marginLeft: "20px", paddingTop: "50px" }} variant="h6">
         Have You Tried These Already?
       </Typography>
       <Box
         sx={{
           paddingTop: '20px',
           paddingLeft: '20px',
+          paddingBottom: '50px',
           display: "flex",
           flexFlow: "row wrap",
           justifyContent: "flex-start",
