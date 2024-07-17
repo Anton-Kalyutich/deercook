@@ -1,9 +1,25 @@
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
 function Articles() {
   const [articles, setArticles] = useState([]);
+
+  const [showFull, setShowFull] = useState(false);
+
+  const handleToggle = () => {
+    setShowFull(!showFull);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -25,6 +41,7 @@ function Articles() {
     }
     fetchData();
   }, []);
+
   return (
     <>
       <Typography sx={{ marginLeft: "20px", paddingTop: "20px" }} variant="h6">
@@ -34,9 +51,10 @@ function Articles() {
         sx={{
           paddingTop: "20px",
           paddingLeft: "20px",
+          paddingRight: "20px",
           paddingBottom: "50px",
           display: "flex",
-          flexFlow: "row wrap",
+          flexDirection: "column",
           justifyContent: "flex-start",
           alignItems: "stretch",
           alignContent: "center",
@@ -47,8 +65,8 @@ function Articles() {
           <Card
             key={index}
             sx={{
-              minWidth: 275,
-              maxWidth: 275,
+              width: "100%", // Make card take full width
+              maxWidth: "100%", // Ensure it doesn't exceed full width
               display: "flex",
               flexDirection: "column",
             }}
@@ -57,10 +75,16 @@ function Articles() {
               <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
                 {article.title}
               </Typography>
-              <Typography variant="body2">{article.content}</Typography>
+              <Typography variant="body2">
+                {showFull
+                  ? article.content
+                  : `${article.content.substring(0, 500)}...`}
+              </Typography>
             </CardContent>
             <CardActions sx={{ mt: "auto" }}>
-              <Button size="small">Read More</Button>
+              <Button size="small" onClick={handleToggle}>
+                {showFull ? "Read Less" : "Read More"}
+              </Button>
             </CardActions>
           </Card>
         ))}
