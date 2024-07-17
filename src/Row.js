@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
 function Row() {
   const [recipes, setRecipes] = useState([]);
@@ -41,13 +43,24 @@ function Row() {
       }}
     >
       {recipes.map((recipe, index) => (
-        <Card key={index} sx={{ minWidth: 275, maxWidth: 275 }}>
+        <Card
+          key={index}
+          sx={{
+            minWidth: 275,
+            maxWidth: 275,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <CardContent>
             <Typography variant="h5" component="div" sx={{ mb: 1.5 }}>
               {recipe.dish_name}
             </Typography>
             <Typography variant="body2">{recipe.description}</Typography>
           </CardContent>
+          <CardActions sx={{ mt: "auto" }}>
+            <Button size="small">Learn More</Button>
+          </CardActions>
         </Card>
       ))}
     </Box>
