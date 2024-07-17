@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let request = await axios.get("http://54.166.154.115:8000/recipes");
+        let request = await axios.get("http://54.166.154.115:8000/recipes/");
         setRecipes(request.data);
         console.log(recipes);
         return request;
