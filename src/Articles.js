@@ -1,4 +1,6 @@
 import Typography from "@mui/material/Typography";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -30,9 +32,9 @@ function Articles() {
       </Typography>
       <Box
         sx={{
-          paddingTop: '20px',
-          paddingLeft: '20px',
-          paddingBottom: '50px',
+          paddingTop: "20px",
+          paddingLeft: "20px",
+          paddingBottom: "50px",
           display: "flex",
           flexFlow: "row wrap",
           justifyContent: "flex-start",
