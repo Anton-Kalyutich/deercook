@@ -14,18 +14,15 @@ import "@fontsource/roboto/700.css";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
-
-  const [showFull, setShowFull] = useState(false);
-
-  const handleToggle = () => {
-    setShowFull(!showFull);
-  };
+  const [showFull, setShowFull] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         let request = await axios.get(`http://54.166.154.115:8000/articles/`);
         setArticles(request.data);
+        // Initialize showFull state with false for each article
+        setShowFull(Array(request.data.length).fill(false));
         console.log(request);
         return request;
       } catch (error) {
@@ -41,6 +38,14 @@ function Articles() {
     }
     fetchData();
   }, []);
+
+  const handleToggle = (index) => {
+    setShowFull((prev) => {
+      const newShowFull = [...prev];
+      newShowFull[index] = !newShowFull[index];
+      return newShowFull;
+    });
+  };
 
   return (
     <>
@@ -76,14 +81,14 @@ function Articles() {
                 {article.title}
               </Typography>
               <Typography variant="body2">
-                {showFull
+                {showFull[index]
                   ? article.content
                   : `${article.content.substring(0, 500)}...`}
               </Typography>
             </CardContent>
             <CardActions sx={{ mt: "auto" }}>
-              <Button sx={{ color: '#8B4513' }}size="small" onClick={handleToggle}>
-                {showFull ? "Read Less" : "Read More"}
+              <Button sx={{ color: '#8B4513' }} size="small" onClick={() => handleToggle(index)}>
+                {showFull[index] ? "Read Less" : "Read More"}
               </Button>
             </CardActions>
           </Card>
