@@ -19,7 +19,7 @@ function Articles() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let request = await axios.get(`http://54.173.65.227:8000:8000/articles/`);
+        let request = await axios.get(`http://54.173.65.227:8000/articles/`);
         setArticles(request.data);
         // Initialize showFull state with false for each article
         setShowFull(Array(request.data.length).fill(false));
