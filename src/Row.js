@@ -28,7 +28,7 @@ function Row() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let request = await axios.get(`http://54.166.154.115:8000/recipes/`);
+        let request = await axios.get(`http://54.173.65.227:8000/recipes/`);
         setRecipes(request.data);
         return request;
       } catch (error) {
